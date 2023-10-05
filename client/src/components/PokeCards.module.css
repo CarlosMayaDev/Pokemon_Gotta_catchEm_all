@@ -1,0 +1,16 @@
+.container {
+    background-image: url('../images/evening-landscape-minimal-4k-kl.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 50px;
+    flex-wrap: wrap;
+    margin: 200px;
+    margin-top: 50px;
+    justify-content: space-between;
+    border: 13px solid rgb(33, 193, 237);
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+}

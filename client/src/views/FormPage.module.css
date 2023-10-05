@@ -1,0 +1,64 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #33c1ed;
+    border-radius: 10px;
+    background-color: #eaf6ff;
+    width: 400px;
+    margin: 0 auto;
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+  }
+  
+  .label {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  
+  .input,
+  .select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 3px;
+  }
+  
+  .error {
+    color: red;
+    font-size: 0.8rem;
+    font-family: monospace;
+    margin-top: 3px;
+  }
+  
+  .button {
+    background-color: #33c1ed;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    font-family: monospace;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+  }
+  
+  .button:hover {
+    background-color: #269ac1;
+  }
+  
+  .h1 {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #1d2e35;
+    font-weight: bold;
+  }

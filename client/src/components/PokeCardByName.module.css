@@ -1,0 +1,50 @@
+
+.card {
+    border: 13px solid rgb(33, 193, 237);
+    background-image: url('../images/golden.jpeg');
+    background-size: 70em;
+    background-position-x: 35%;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50px;
+    margin: 60px;
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+}
+
+.p {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #1d2e35;
+    font-weight: bold;
+}
+
+.h2 {
+    font-family: monospace;
+    font-size: 2.7rem;
+    color: #001f9a;
+    font-weight: bold;
+}
+.h2:hover {
+    color: #ff9900; /* Cambia el color cuando el cursor pase sobre el elemento */
+}
+
+.closeButton {
+    background-color: #ff5a5a;
+    color: #f9f9f9;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    font-family: monospace;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .closeButton:hover {
+  background-color: #10232e;
+}
+
+
+
+
+

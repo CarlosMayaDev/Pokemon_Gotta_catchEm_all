@@ -1,0 +1,61 @@
+.container {
+    background-image: url('../images/evening-landscape-minimal-4k-kl.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column; /* Cambia la dirección a columna */
+    justify-content: center;
+    align-items: center;
+    border: 13px solid rgb(33, 193, 237);
+    border-radius: 50px;
+    padding: 20px;
+    margin: 200px;
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .container2 {
+    margin-top: 20px; /* Agrega un margen superior para separar del container anterior */
+    border: 13px solid rgb(33, 193, 237);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente los elementos */
+    padding: 1.5em;
+    background-color: aliceblue;
+    border-radius: 50px;
+    width: 25em;
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+  }
+
+  .p {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #1d2e35;
+    font-weight: bold;
+}
+
+.h1 {
+    font-family: monospace;
+    font-size: 3rem;
+    color: #8300f5;
+    font-weight: bold;
+}
+
+.closeButton {
+    background-color: #ff5a5a;
+    color: #f9f9f9;
+    border: none;
+    border-radius: 5px;
+    padding: 0.3rem 0.5rem;
+    font-family: monospace;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .closeButton:hover {
+  background-color: #10232e;
+}
+
+  

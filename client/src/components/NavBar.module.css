@@ -1,0 +1,47 @@
+.container {
+    background-image: url('../images/ATG003253_2023_Pokemon-Web-Banner-1920x540-1.jpg');
+    background-size: 150em;
+    background-position-y: 25%;
+    background-position-x: 25%;
+    background-repeat: repeat;
+    border-radius: 50px;
+    flex-wrap: wrap;
+    margin:20px 180px;
+    border: 13px solid rgb(33, 193, 237);
+    width: 135em;
+    height: 27em;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+}
+
+.container2 {
+    border: 13px solid rgb(33, 193, 237);
+    display: flex;
+    flex-direction: column;
+    margin-left: 110em; /* Mueve el container2 hacia el lado derecho */
+    margin-top: 2.5em;
+    margin-bottom: 7em;
+    margin-right: 5em;
+    padding: 1.5em;
+    background-color: aliceblue;
+    border-radius: 50px;
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+}
+
+.p {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #1d2e35;
+    font-weight: bold;
+}
+.p:hover {
+    color: #ff9900; /* Cambia el color cuando el cursor pase sobre el elemento */
+}
+
+.pSearch {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #1d2e35;
+    font-weight: bold;
+}
