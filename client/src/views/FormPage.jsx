@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./FormPage.module.css";
+
 const FormPage = () => {
 
     const tiposPokemon = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy", "unknown", "shadow"];
+
+    const preset_key = "ml_default";
+    const cloud_name = "dxal0nlxi";
+    const [image, setImage] = useState()
 
     const [form, setForm] = useState({
         nombre: "",
@@ -29,6 +34,16 @@ const FormPage = () => {
         tipo: [],
     })
 
+    const handleFile = (event) => {
+        const file = event.target.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append("upload_preset", preset_key);
+        axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
+        .then(response => setImage(response.data.secure_url))
+        .catch(error => console.log(error));
+    }
+
     const changeHandler = (event) => { // lee lo que escribo y lo guarda en el estado
         const property = event.target.name;
         let value = event.target.value;
@@ -46,6 +61,7 @@ const FormPage = () => {
 
         const pokemonDataToSend = {
             ...form,
+            imagen: image,
             creado: true, 
         };
 
@@ -158,9 +174,13 @@ const FormPage = () => {
             </div>
             {errors.nombre && <span className={styles.error}>{errors.nombre}</span>}
 
-            <div className={styles.formGroup}>
+            {/* <div className={styles.formGroup}>
                 <label className={styles.label}>image URL: </label>
                 <input type="text" value={form.imagen} onChange={changeHandler} name="imagen" className={styles.input}/>
+            </div> */}
+
+            <div>
+                <input type="file" name="image" onChange={handleFile} />
             </div>
 
             <div className={styles.formGroup}>
