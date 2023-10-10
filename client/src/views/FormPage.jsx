@@ -59,6 +59,13 @@ const FormPage = () => {
     const submitHandler = (event) => {
         event.preventDefault();
 
+        const hasEmptyFields = Object.values(form).some(value => value === '');
+
+        if (hasEmptyFields) {
+            alert('Please complete all fields.');
+            return;
+        }
+
         const pokemonDataToSend = {
             ...form,
             imagen: image,
@@ -66,7 +73,7 @@ const FormPage = () => {
         };
 
         const response = axios.post("http://localhost:3001/pokemons", pokemonDataToSend)
-        .then(res =>  alert("Pokemon agregado a la base de datos!", res))
+        .then(res =>  alert("Pokemon added to database!", res))
         .catch(error=>alert(error));
         
         setForm({
