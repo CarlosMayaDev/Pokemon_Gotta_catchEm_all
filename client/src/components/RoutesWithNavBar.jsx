@@ -5,6 +5,7 @@ import NavBar from './NavBar';
 import { Switch, Route } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { searchPokemon } from '../redux/actions';
+import Footer from './Footer';
 
 const RoutesWithNavBar = () => {
 
@@ -22,6 +23,7 @@ const RoutesWithNavBar = () => {
           <Route path="/detail/:id" component={DetailPage} />
           <Route path="/form" component={FormPage} />
         </Switch>
+        <Footer />
       </>
     );
   };

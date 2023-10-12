@@ -200,6 +200,7 @@ const FormPage = () => {
             </div> */}
 
             <div>
+            <label className={styles.label}>choose an image: </label><br />
                 <input type="file" name="image" onChange={handleFile} />
             </div>
 

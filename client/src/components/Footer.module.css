@@ -1,0 +1,27 @@
+.footer {
+    background-color: rgb(137, 214, 235);
+    padding: 20px;
+    text-align: center;
+    border-radius: 50px;
+    margin: 80px 180px;
+    border: 13px solid rgb(33, 193, 237);
+    width: 135em;
+    box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+  }
+  
+  .p {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #1d2e35;
+    font-weight: bold;
+  }
+
+.p1 {
+    font-family: monospace;
+    font-size: 1.5rem;
+    color: #1d2e35;
+    font-weight: bold;
+}
+.p1:hover {
+    color: #ff9900; /* Cambia el color cuando el cursor pase sobre el elemento */
+}
