@@ -3,8 +3,14 @@ import PokeCards from "../components/PokeCards";
 import { useDispatch, useSelector } from 'react-redux';
 import { filterByOrigin, filterByType, getPokemons, orderByName, orderByAttack } from "../redux/actions";
 import style from "./HomePage.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const HomePage = () => {
+
+  const { isAuthenticated, isLoading } = useAuth0();
+
   const dispatch = useDispatch();
   const { totalPokemons } = useSelector(state => state);
  
@@ -31,7 +37,12 @@ const HomePage = () => {
 
   return (
     <div>
-
+      {isLoading ? (
+        <Loading /> // Muestra el componente de carga si Auth0 está cargando
+      ) : (
+      <>
+    {isAuthenticated ? (
+      <>
         <h1 className={style.homeTitle}>Gotta Catch 'Em All</h1>
 
         <div className={style["selector-container"]}>
@@ -85,9 +96,20 @@ const HomePage = () => {
         </select>
     </div>
     <PokeCards />
-    </div>
-  );
-};
+    </>
+    ) : (
+      <div>
+        <h1>You Have to Be Logged In</h1>
+        <Link to="/">
+          <p className={style.p}>Go back!</p>
+        </Link>
+      </div>
+    )}
+    </>
+      )}
+      </div>
+    );
+  };
 
 export default HomePage;
 

@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import styles from "./FormPage.module.css";
+import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from "react-router-dom";
+import Loading from "../components/Loading";
 
 const FormPage = () => {
+
+    const { isAuthenticated, isLoading } = useAuth0();
 
     const tiposPokemon = ["normal", "fighting", "flying", "poison", "ground", "rock", "bug", "ghost", "steel", "fire", "water", "grass", "electric", "psychic", "ice", "dragon", "dark", "fairy", "unknown", "shadow"];
 
@@ -172,6 +177,14 @@ const FormPage = () => {
     }
 
     return (
+
+    <div>
+        {isLoading ? (
+          <Loading /> // Muestra el componente de carga si Auth0 está cargando
+            ) : (
+            <>
+        {isAuthenticated ? (
+            <>
         <form onSubmit={submitHandler} className={styles.form}>
 
             <h1 className={styles.h1}>Create your own Pokemon!</h1>
@@ -246,7 +259,19 @@ const FormPage = () => {
             </div>
             <button type="submit" className={styles.button}>create pokemon</button>
         </form>
-    )
-};
+        </>
+    ) : (
+      <div>
+        <h1>You Have to Be Logged In</h1>
+        <Link to="/">
+          <p className={styles.p}>Go back!</p>
+        </Link>
+      </div>
+    )}
+    </>
+      )}
+      </div>
+    );
+  };
 
 export default FormPage;

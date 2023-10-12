@@ -54,3 +54,6 @@
   color: #1d2e35;
   font-weight: bold;
 }
+.p:hover {
+  color: #ff9900; /* Cambia el color cuando el cursor pase sobre el elemento */
+}
