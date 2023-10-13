@@ -4,6 +4,7 @@ import styles from "./FormPage.module.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
+import { useEffect } from "react";
 
 const FormPage = () => {
 
@@ -14,6 +15,7 @@ const FormPage = () => {
     const preset_key = "ml_default";
     const cloud_name = "dxal0nlxi";
     const [image, setImage] = useState()
+    const [isFormReady, setIsFormReady] = useState()
 
     const [form, setForm] = useState({
         nombre: "",
@@ -44,9 +46,17 @@ const FormPage = () => {
         const formData = new FormData();
         formData.append('file', file);
         formData.append("upload_preset", preset_key);
+        
         axios.post(`https://api.cloudinary.com/v1_1/${cloud_name}/image/upload`, formData)
-        .then(response => setImage(response.data.secure_url))
-        .catch(error => console.log(error));
+            .then(response => {
+                const imageUrl = response.data.secure_url;
+                setForm((prevForm) => ({
+                    ...prevForm,
+                    imagen: imageUrl,
+                }));
+                setImage(imageUrl);
+            })
+            .catch(error => console.log(error));
     }
 
     const changeHandler = (event) => { // lee lo que escribo y lo guarda en el estado
@@ -57,19 +67,18 @@ const FormPage = () => {
             value = Array.from(event.target.selectedOptions, option => option.value);
         }
 
-        setForm({ ...form, [property]: value });
-        validate(property, value);
+        setForm({
+            ...form,
+            [property]: value,
+        });
     }
+
+    useEffect(() => {
+        validate();  // Validar cada vez que el estado del formulario cambie
+    }, [form])
 
     const submitHandler = (event) => {
         event.preventDefault();
-
-        const hasEmptyFields = Object.values(form).some(value => value === '');
-
-        if (hasEmptyFields) {
-            alert('Please complete all fields.');
-            return;
-        }
 
         const pokemonDataToSend = {
             ...form,
@@ -174,6 +183,9 @@ const FormPage = () => {
         }
 
         setErrors(newErrors);
+        console.log(form);
+        const isFormValid = Object.values(form).every((value) => value !== '');
+        setIsFormReady(isFormValid);
     }
 
     return (
@@ -258,8 +270,12 @@ const FormPage = () => {
                 </select>
                 {errors.tipo && <span className={styles.error}>{errors.tipo}</span>}
             </div>
-            <button type="submit" className={styles.button}>create pokemon</button>
-        </form>
+            {isFormReady && (
+                <button type="submit" className={styles.button}>
+                    Create Pokemon
+                </button>
+            )}     
+            </form>
         </>
     ) : (
       <div>
