@@ -1,4 +1,4 @@
-import { FILTER_BY_TYPE, SEARCH_POKEMON_SUCCESS, GET_POKEMONS, FILTER_BY_ORIGIN, ORDER_BY_NAME, ORDER_BY_ATTACK, UPDATE_SEARCHED_POKEMON } from "./actions";
+import { FILTER_BY_TYPE, SEARCH_POKEMON_SUCCESS, SEARCH_POKEMON_ERROR, GET_POKEMONS, FILTER_BY_ORIGIN, ORDER_BY_NAME, ORDER_BY_ATTACK, UPDATE_SEARCHED_POKEMON } from "./actions";
 
 const initialState = {
   pokemons: [],
@@ -14,8 +14,12 @@ const rootReducer = (state = initialState, action) => {
     case SEARCH_POKEMON_SUCCESS:
       return {
         ...state,
-        searchedPokemon: [...state.searchedPokemon, action.payload],
+        searchedPokemon: [action.payload], // Actualiza el estado con el Pokémon buscado
       };
+
+    case SEARCH_POKEMON_ERROR:
+      // Maneja el error si es necesario
+      return state;
 
     case FILTER_BY_TYPE:
     let filteredPokemons = [];

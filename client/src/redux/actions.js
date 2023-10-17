@@ -19,18 +19,19 @@ export const getPokemons = ({ page, limit }) => {
 };
 
 export const searchPokemon = (name) => {
-    return async function(dispatch) {
-      try {
-        const response = await axios.get(`http://localhost:3001/pokemons/search?name=${name}`);
-        const pokemonData = response.data;
-        console.log(response.data);
-  
-        dispatch({ type: SEARCH_POKEMON_SUCCESS, payload: pokemonData }); // Actualiza el estado global
-      } catch (error) {
-        dispatch({ type: SEARCH_POKEMON_ERROR, payload: error.message }); // Maneja el error si es necesario
-      }
-    };
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`http://localhost:3001/pokemons/search?name=${name}`);
+      const pokemonData = response.data[0];
+
+      // Envolvemos los datos en un arreglo
+      dispatch({ type: SEARCH_POKEMON_SUCCESS, payload: { pokemon: pokemonData } });
+    } catch (error) {
+      console.error('Error fetching Pokemon:', error);
+      dispatch({ type: SEARCH_POKEMON_ERROR, payload: error.message });
+    }
   };
+};
   
 export const filterByType = (tipo) => {
     return { type: FILTER_BY_TYPE, payload: tipo}; 

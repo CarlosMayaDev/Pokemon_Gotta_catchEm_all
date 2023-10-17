@@ -8,9 +8,16 @@
     flex-direction: row;
     border-radius: 50px;
     flex-wrap: wrap;
-    margin: 200px;
-    margin-top: 50px;
+    margin: 100px;
+    margin-top: 10px;
     justify-content: space-between;
     border: 13px solid rgb(33, 193, 237);
     box-shadow: 15px 19px 18px rgba(0, 0, 0, 0.2);
+}
+
+.p {
+    font-family: monospace;
+    font-size: 2em;
+    color: #1d2e35;
+    font-weight: bold;
 }
